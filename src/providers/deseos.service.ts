@@ -11,9 +11,6 @@ export class DeseosService {
     const lista2 = new Lista('Recolectar piedras del infinito');
 
     this.listas.push(lista1, lista2);
-    console.log(this.listas);
-
-
   }
 
 

@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Pendientes </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Hola Pendientes</h2>
+<ion-content>
+  <img src="../../assets/imgs/pendientes.jpg" alt="pendientes-title">
+  <ion-list>
+    <button ion-item
+            *ngFor="let lista of deseosService.listas"
+            (click)="listaSeleccionada(lista)">
+      {{ lista.titulo }}
+    </button>
+  </ion-list>
 </ion-content>
