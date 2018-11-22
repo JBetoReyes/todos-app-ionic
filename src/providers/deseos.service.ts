@@ -7,11 +7,22 @@ export class DeseosService {
   listas: Lista[] = [];
 
   constructor() {
-    const lista1 = new Lista('Recolectar piedras del infinito');
-    const lista2 = new Lista('Recolectar piedras del infinito');
-
-    this.listas.push(lista1, lista2);
+    this.cargarStorage();
   }
 
+  agregarLista(lista: Lista) {
+    this.listas.push(lista);
+    this.guardarStorage();
+  }
 
+  guardarStorage() {
+    localStorage.setItem('data', JSON.stringify(this.listas));
+  }
+
+  cargarStorage() {
+    const data = localStorage.getItem('data');
+    if (data) {
+      this.listas = JSON.parse(data);
+    }
+  }
 }
