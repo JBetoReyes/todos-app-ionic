@@ -7,21 +7,34 @@
 <ion-content>
   <ion-list>
 
-    <ion-list-header>
-      Tareas por hacer
-    </ion-list-header>
-
     <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label floating>Nuevo item</ion-label>
+      <ion-input
+        [(ngModel)]="nombreItem"
+        type="text"
+        (keyup.enter)="agregarItem()"></ion-input>
     </ion-item>
   </ion-list>
 
-  <ion-list>
-    <button ion-item>
-      <ion-icon name="square-outline" item-start></ion-icon>
-      Salvar el mundo
-    </button>
+  <ion-list *ngIf="lista.items.length > 0">
+    <ion-list-header>
+      Tareas por hacer
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let item of lista.items; let idx = index"
+                      class="animated fadeInDown">
+      <button
+        ion-item
+        (click)="actualizarTarea(item)">
+        <ion-icon *ngIf="item.completado" name="checkbox-outline" item-start></ion-icon>
+        <ion-icon *ngIf="!item.completado" name="square-outline" item-start></ion-icon>
+        {{ item.desc }}
+      </button>
+      <ion-item-options side="right">
+        <button (click)="borrar(idx)" ion-button icon-only color="danger">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 </ion-content>
