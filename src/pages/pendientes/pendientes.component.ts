@@ -19,11 +19,13 @@ export class PendientesPage {
   }
 
   listaSeleccionada(lista: Lista) {
-    console.log(lista);
+    this.navCtrl.push( AgregarPage, {
+      titulo: lista.titulo,
+      id: lista.id
+    });
   }
 
   agregarLista() {
-    //
     const alert = this.alertCtrl.create({
       title: 'Nueva Lista',
       message: 'Nombre de la nueva lista que desea',
@@ -49,5 +51,9 @@ export class PendientesPage {
     });
 
     alert.present();
+  }
+
+  borrar(id) {
+    this.deseosService.borrarLista(id);
   }
 }

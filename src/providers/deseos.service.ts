@@ -25,4 +25,19 @@ export class DeseosService {
       this.listas = JSON.parse(data);
     }
   }
+
+  getLista(id) {
+    let lista;
+    if (this.listas.length > 0) {
+      lista = this.listas.find((currList) => {
+        return currList.id === id;
+      });
+    }
+    return lista;
+  }
+
+  borrarLista(id) {
+    this.listas = this.listas.filter(x => x.id !== id);
+    this.guardarStorage();
+  }
 }

@@ -7,11 +7,21 @@
 <ion-content>
   <img src="../../assets/imgs/pendientes.jpg" alt="pendientes-title">
   <ion-list>
-    <button ion-item
-            *ngFor="let lista of deseosService.listas"
-            (click)="listaSeleccionada(lista)">
-      {{ lista.titulo }}
-    </button>
+    <ion-item-sliding *ngFor="let lista of deseosService.listas">
+      <button ion-item
+              (click)="listaSeleccionada(lista)">
+        {{ lista.titulo }}
+
+        <ion-note item-end>
+          {{ lista.items.length }} items
+        </ion-note>
+      </button>
+      <ion-item-options side="left">
+        <button (click)="borrar(lista.id)" ion-button icon-only color="danger">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
   <ion-fab bottom right>
