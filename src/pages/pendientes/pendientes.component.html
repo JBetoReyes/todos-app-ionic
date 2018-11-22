@@ -7,7 +7,7 @@
 <ion-content>
   <img src="../../assets/imgs/pendientes.jpg" alt="pendientes-title">
   <ion-list>
-    <ion-item-sliding *ngFor="let lista of deseosService.listas">
+    <ion-item-sliding *ngFor="let lista of deseosService.listas | filtroCompletado:false">
       <button ion-item
               (click)="listaSeleccionada(lista)">
         {{ lista.titulo }}
