@@ -6,23 +6,7 @@
 
 <ion-content>
   <img src="../../assets/imgs/pendientes.jpg" alt="pendientes-title">
-  <ion-list>
-    <ion-item-sliding *ngFor="let lista of deseosService.listas | filtroCompletado:false">
-      <button ion-item
-              (click)="listaSeleccionada(lista)">
-        {{ lista.titulo }}
-
-        <ion-note item-end>
-          {{ lista.items.length }} items
-        </ion-note>
-      </button>
-      <ion-item-options side="left">
-        <button (click)="borrar(lista.id)" ion-button icon-only color="danger">
-          <ion-icon name="close"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+  <app-listas [listaType]="false" ></app-listas>
 
   <ion-fab bottom right>
     <button (click)="agregarLista()" ion-fab ><ion-icon name="add"></ion-icon></button>

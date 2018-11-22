@@ -6,11 +6,5 @@
 
 <ion-content>
   <img src="../../assets/imgs/completados.jpg" alt="completados title">
-  <ion-list>
-    <button ion-item
-            *ngFor="let lista of deseosService.listas | filtroCompletado:true"
-            (click)="listaSeleccionada(lista)">
-      {{ lista.titulo }}
-    </button>
-  </ion-list>
+  <app-listas [listaType]="true" ></app-listas>
 </ion-content>
