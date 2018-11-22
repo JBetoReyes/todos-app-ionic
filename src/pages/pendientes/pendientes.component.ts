@@ -15,8 +15,8 @@ export class PendientesPage {
   constructor(
     public deseosService: DeseosService,
     private navCtrl: NavController,
-    private alertCtrl: AlertController) {
-  }
+    private alertCtrl: AlertController
+  ) { }
 
   agregarLista() {
     const alert = this.alertCtrl.create({
